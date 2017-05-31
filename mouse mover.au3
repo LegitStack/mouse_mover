@@ -1,9 +1,9 @@
 #cs ----------------------------------------------------------------------------
-1. control + left click = set position 1
-2. control + left click = set position 2
-3. control + mouse6 click = goto position 1
-4. control + mouse6 click = goto position 2
-5. mouse6 = rotate around the screen
+1. control 	+ 	left click 		= set 	position 1
+2. alt 		+ 	left click 		= set 	position 2
+3. control 	+ 	mouse6 click 	= goto 	position 1
+4. alt 		+ 	mouse6 click 	= goto 	position 2
+5. 			 	mouse6 			= rotate around the screen
 #ce ----------------------------------------------------------------------------
 
 #include <Misc.au3>
