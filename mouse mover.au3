@@ -1,8 +1,9 @@
 #cs ----------------------------------------------------------------------------
-1. q = dash melee
-2. c = turn around
-3. 05 mouse = turn left 90 degress
-4. 06 mouse = melee, dash forward, turn around, shoot
+1. control + left click = set position 1
+2. control + left click = set position 2
+3. control + mouse6 click = goto position 1
+4. control + mouse6 click = goto position 2
+5. mouse6 = rotate around the screen
 #ce ----------------------------------------------------------------------------
 
 #include <Misc.au3>
@@ -12,7 +13,6 @@
 
 HotKeySet("{F1}", "Terminate")
 
-;ResetTimer()
 Global $wait = 10
 Global $speed = 3
 Global $x = 0
@@ -23,22 +23,12 @@ Global $lastposb = MouseGetPos()
 
 
    While 1
-;	  If _IsPressed("01", $hDLL) Then ;leftshift
-;		 If _IsPressed("44", $hDLL) Then ;d
-;			MouseMove((@desktopwidth*.75),(@desktopheight/2),0)
-;		 elseIf _IsPressed("41", $hDLL) Then ;a
-;			MouseMove((@desktopwidth*.10),(@desktopheight/10),0)
-;		 elseIf _IsPressed("53", $hDLL) Then ;s
-;			MouseMove((@desktopwidth/4),(@desktopheight/2),0)
-; 		 elseIf _IsPressed("46", $hDLL) Then ;f
-;			MouseMove((@desktopwidth*.90),(@desktopheight/10),0)
-;		 EndIf
-;	  else
+
 	  If _IsPressed("11", $hDLL) then
 		 If _IsPressed("06", $hDLL) then
 			MouseMove($lastposa[0],$lastposa[1],$speed)
 			Sleep($wait)
-		 elseIf _IsPressed("01", $hDLL) then ;left
+		 elseIf _IsPressed("01", $hDLL) then
 			$aPos = MouseGetPos()
 			If $lastposa[0] < $aPos[0] + 50 and $lastposa[0] > $aPos[0] - 50 and $lastposa[1] < $aPos[1] + 50 and $lastposa[1] > $aPos[1] - 50 Then
 			Else
@@ -51,7 +41,7 @@ Global $lastposb = MouseGetPos()
 		 If _IsPressed("06", $hDLL) then
 			MouseMove($lastposb[0],$lastposb[1],$speed)
 			Sleep($wait)
-		 elseIf _IsPressed("01", $hDLL) then ;left
+		 elseIf _IsPressed("01", $hDLL) then
 			$aPos = MouseGetPos()
 			If $lastposb[0] < $aPos[0] + 50 and $lastposb[0] > $aPos[0] - 50 and $lastposb[1] < $aPos[1] + 50 and $lastposb[1] > $aPos[1] - 50 Then
 			Else
@@ -86,38 +76,3 @@ Func Terminate()
  DllClose($hDLL)
    Exit
 EndFunc
-
-;Func ResetTimer()
-;   Global $hTimer = TimerInit()
-;EndFunc
-
-;Func FindTimer()
-;   Return TimerDiff($hTimer)
-;EndFunc
-
-
-
-;		 If FindTimer() < 5000 then
-;			if $x == 0 Then
-;			   MouseMove((@desktopwidth/2),(@desktopheight/2),$speed)
-;			   $x = 1
-;			elseif $x == 1 Then
-;			   MouseMove((@desktopwidth*.05),(@desktopheight*.10),$speed)
-;			   $x = 2
-;			elseIf $x == 2 Then
-;			   MouseMove((@desktopwidth*.95),(@desktopheight*0.10),$speed)
-;			   $x = 3
-;			elseIf $x == 3 Then
-;			   MouseMove((@desktopwidth*.95),(@desktopheight*0.90),$speed)
-;			   $x = 4
-;			elseIf $x == 4 Then
-;			   MouseMove((@desktopwidth*.05),(@desktopheight*0.90),$speed)
-;			   $x = 0
-;			endif
-;			Sleep($wait)
-;		 else
-;			MouseMove((@desktopwidth/2),(@desktopheight/2),$speed)
-;			$x = 1
-;			Sleep($wait)
-;		 EndIf
-;		 ResetTimer()
